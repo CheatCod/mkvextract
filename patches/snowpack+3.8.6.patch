@@ -1,0 +1,15 @@
+diff --git a/node_modules/snowpack/lib/cjs/commands/dev.js b/node_modules/snowpack/lib/cjs/commands/dev.js
+index 1e17d9f..1377841 100644
+--- a/node_modules/snowpack/lib/cjs/commands/dev.js
++++ b/node_modules/snowpack/lib/cjs/commands/dev.js
+@@ -127,6 +127,10 @@ function sendResponseFile(req, res, { contents, originalFileLoc, contentType })
+         'Content-Type': contentType || 'application/octet-stream',
+         ETag,
+         Vary: 'Accept-Encoding',
++        'Cross-Origin-Embedder-Policy': 'require-corp',
++'Cross-Origin-Opener-Policy': 'same-origin',
++'Cross-Origin-Resource-Policy': 'cross-origin',
++        
+     };
+     if (req.headers['if-none-match'] === ETag) {
+         res.writeHead(304, headers);
