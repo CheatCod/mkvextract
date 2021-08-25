@@ -1,45 +1,127 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+h1 {
+  z-index: 19;
+  position: absolute;
+  width: 398px;
+  height: 174px;
+  left: 110px;
+  top: 213px;
+  font-family: Euclid Circular A;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 120.8%;
+  /* or 58px */
+
+  display: flex;
+  align-items: center;
+  text-align: left;
+
+  color: #000000;
+}
+
+h2 {
+  z-index: 19;
+  position: absolute;
+  width: 296px;
+  height: 58px;
+  left: 110px;
+  top: 405px;
+
+  font-family: Euclid Circular A;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 183.8%;
+  /* or 29px */
+
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding-top: 10px;
+
+  color: #000000;
+}
+
+button.addFile {
+  z-index: 19;
+  position: absolute;
+  width: 53px;
+  height: 52px;
+  left: 105px;
+  top: 531px;
+
+  background: radial-gradient(
+    86.76% 198.16% at 7.3% 5.73%,
+    rgba(255, 255, 255, 0.63) 0%,
+    rgba(255, 255, 255, 0.09) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  backdrop-filter: blur(40px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 64px;
+}
+
 .App {
   text-align: center;
-}
-.App code {
-  background: #fff3;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.App p {
-  margin: 0.4rem;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(244.27deg, #0093e9 15.11%, #80d0c7 84.96%);
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.circle1 {
+  position: absolute;
+  width: 444px;
+  height: 444px;
+  left: -91px;
+  top: -87px;
+  border-radius: 50%;
+  background: linear-gradient(
+    322.84deg,
+    #0093e9 23.25%,
+    rgba(128, 208, 199, 0.6) 76.11%
+  );
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.circle2 {
+  position: absolute;
+  width: 168px;
+  height: 168px;
+  left: 406px;
+  top: 770px;
+  border-radius: 50%;
+  background: linear-gradient(
+    327.48deg,
+    #0093e9 32.5%,
+    rgba(128, 208, 199, 0.87) 69.14%
+  );
 }
 
-.App-link {
-  color: #61dafb;
-}
+.pane {
+  position: absolute;
+  width: 467px;
+  height: 923px;
+  left: 83px;
+  top: 69px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background: radial-gradient(
+    86.76% 198.16% at 7.3% 5.73%,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  backdrop-filter: blur(40px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 32px;
 }

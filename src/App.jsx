@@ -43,6 +43,12 @@ function App() {
   };
   return ready ? (
     <div className="App">
+      <span className="circle1"></span>
+      <span className="circle2"></span>
+      <h1>Simple, optimized, subtitle extractor</h1>
+      <h2> High performance web app built with FFmpeg and web assembly </h2>
+      <button className="addFile"> + </button>
+      <div className="pane"></div>
       {video && (
         <video controls width="250" src={URL.createObjectURL(video)}>
           {' '}
@@ -51,7 +57,7 @@ function App() {
 
       <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} />
 
-      <h3>Result</h3>
+      <h4>Result</h4>
 
       <button onClick={extractSub}> Extract Sub </button>
 
