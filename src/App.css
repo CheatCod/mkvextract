@@ -5,13 +5,77 @@ body {
   overflow-y: hidden;
 }
 
+h1,
+h2,
+h3 {
+  margin: 0 0 0 0;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+nav {
+  margin: auto;
+  z-index: 19;
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 33px;
+}
+
+.menu {
+  width: 467px;
+  height: 56px;
+  margin-right: 50px;
+  background: radial-gradient(
+    86.76% 198.16% at 7.3% 5.73%,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  backdrop-filter: blur(40px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 32px;
+}
+
+.mkvextract {
+  width: 174px;
+  height: 56px;
+  margin-left: 50px;
+  font-family: Euclid Circular A;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 183.8%;
+  color: black;
+
+  background: radial-gradient(
+    86.76% 198.16% at 7.3% 5.73%,
+    rgba(255, 255, 255, 0.63) 0%,
+    rgba(255, 255, 255, 0.09) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  backdrop-filter: blur(40px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 28px;
+}
+
 h1 {
   z-index: 19;
   position: absolute;
   width: 398px;
   height: 174px;
-  left: 110px;
-  top: 213px;
+  left: 34px;
+  top: 64px;
+
   font-family: Euclid Circular A;
   font-style: normal;
   font-weight: 500;
@@ -31,9 +95,8 @@ h2 {
   position: absolute;
   width: 296px;
   height: 58px;
-  left: 110px;
-  top: 405px;
-
+  left: 34px;
+  top: 252px;
   font-family: Euclid Circular A;
   font-style: normal;
   font-weight: 300;
@@ -44,30 +107,48 @@ h2 {
   display: flex;
   align-items: center;
   text-align: left;
-  padding-top: 10px;
 
   color: #000000;
 }
 
-button.addFile {
+h3 {
+  z-index: 19;
+  position: absolute;
+  width: 263px;
+  height: 33px;
+  left: 84px;
+  font-family: Euclid Circular A;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 183.8%;
+  /* identical to box height, or 33px */
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.drag-and-drop {
+  left: 34px;
+  top: 396px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+
+.addFile {
   z-index: 19;
   position: absolute;
   width: 53px;
-  height: 52px;
-  left: 105px;
-  top: 531px;
+  height: 53px;
 
-  background: radial-gradient(
-    86.76% 198.16% at 7.3% 5.73%,
-    rgba(255, 255, 255, 0.63) 0%,
-    rgba(255, 255, 255, 0.09) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-sizing: border-box;
-  backdrop-filter: blur(40px);
-  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 50%;
+  background: #0093e9;
 
-  border-radius: 64px;
+  color: white;
+  font-size: 24px;
 }
 
 .App {
@@ -79,6 +160,7 @@ button.addFile {
 }
 
 .circle1 {
+  z-index: 0;
   position: absolute;
   width: 444px;
   height: 444px;
@@ -93,6 +175,7 @@ button.addFile {
 }
 
 .circle2 {
+  z-index: 0;
   position: absolute;
   width: 168px;
   height: 168px;
@@ -106,13 +189,11 @@ button.addFile {
   );
 }
 
-.pane {
+.hero {
   position: absolute;
   width: 467px;
   height: 923px;
-  left: 83px;
-  top: 69px;
-
+  left: 151px;
   background: radial-gradient(
     86.76% 198.16% at 7.3% 5.73%,
     rgba(255, 255, 255, 0.42) 0%,
@@ -122,6 +203,24 @@ button.addFile {
   box-sizing: border-box;
   backdrop-filter: blur(40px);
   /* Note: backdrop-filter has minimal browser support */
-
   border-radius: 32px;
+}
+
+.download {
+  position: relative;
+  width: 211px;
+  height: 60px;
+  margin: auto;
+  top: 654px;
+  background: #0093e9;
+  box-shadow: 0px 4px 15px #0093e9;
+  border-radius: 35px;
+
+  font-family: Euclid Circular A;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+
+  color: #ffffff;
 }

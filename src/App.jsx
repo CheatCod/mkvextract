@@ -12,9 +12,9 @@ const ffmpeg = createFFmpeg({
 function App() {
   const [ready, setReady] = useState(false);
 
-  const [video, setVideo] = useState();
+  let [video, setVideo] = useState();
 
-  const [url, setUrl] = useState();
+  let [url, setUrl] = useState();
 
   const load = async () => {
     await ffmpeg.load();
@@ -26,6 +26,7 @@ function App() {
   }, []);
 
   const extractSub = async () => {
+    console.log('executing extractSub');
     ffmpeg.FS('writeFile', 'test.mp4', await fetchFile(video));
 
     await ffmpeg.run(
@@ -38,30 +39,64 @@ function App() {
     );
 
     const data = ffmpeg.FS('readFile', 'sub.srt');
-
-    setUrl(URL.createObjectURL(new Blob([data.buffer], { type: 'srt' })));
+    url = URL.createObjectURL(new Blob([data.buffer], { type: 'srt' }));
+    setUrl(url);
   };
+
+  function downloadURI(uri, name) {
+    var link = document.createElement('a');
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   return ready ? (
     <div className="App">
+      <nav>
+        <button className="mkvextract"> MKVExtract </button>
+        <div className="menu"> </div>
+      </nav>
       <span className="circle1"></span>
       <span className="circle2"></span>
-      <h1>Simple, optimized, subtitle extractor</h1>
-      <h2> High performance web app built with FFmpeg and web assembly </h2>
-      <button className="addFile"> + </button>
-      <div className="pane"></div>
-      {video && (
-        <video controls width="250" src={URL.createObjectURL(video)}>
-          {' '}
-        </video>
-      )}
 
-      <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} />
+      <div className="hero">
+        <h1>
+          Simple,
+          <br /> no upload , subtitle extractor
+        </h1>
+        <h2> High performance web app built with FFmpeg and web assembly </h2>
+
+        <div className="drag-and-drop">
+          <h3> Drag & drop your video to start</h3>
+          <button
+            className="addFile"
+            onClick={() => document.getElementById('fileButton').click()}
+          >
+            +
+          </button>
+        </div>
+        <button className="download" download={url}>
+          Download
+        </button>
+      </div>
+
+      <input
+        id="fileButton"
+        type="file"
+        onChange={(e) => {
+          video = e.target.files?.item(0);
+          setVideo(video);
+          extractSub().then(() => downloadURI(url, 'gay.srt'));
+        }}
+      />
 
       <h4>Result</h4>
 
       <button onClick={extractSub}> Extract Sub </button>
 
-      <a href={url} download="sub.srt">
+      <a href={url} download="sub.srt" id="download">
         download
       </a>
     </div>
